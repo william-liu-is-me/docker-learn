@@ -1,16 +1,16 @@
-FROM python:3.10.5
+FROM python:3.10
 
-#WORKDIR /combine_data
+WORKDIR /combine_data
 
-COPY requirements.txt .
+ADD . .
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install pandas
 
-COPY  test.py .
+RUN mkdir ./data
 
+VOLUME [ "./data" ]
 
 #sleep infinity
-
 CMD ["sleep", "infinity"]
 
 

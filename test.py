@@ -3,16 +3,21 @@ import glob
 import os
 
 
-input_path = '/tmp/input'
-output_path =  '/tmp/output'
+input_path = './data/input'
+
+output_path =  './data/output'
 
 filename = 'all_years.csv'
+
 csvs = glob.glob(os.path.join(input_path , "*.csv"))
 
 
 li = []
+
 for f in csvs:
+
     df = pd.read_csv(f, index_col=None, header=0)
+
     li.append(df)
 
 df_concat = pd.concat(li,axis=0, ignore_index=True)
